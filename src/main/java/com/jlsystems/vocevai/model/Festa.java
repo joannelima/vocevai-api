@@ -1,14 +1,18 @@
 package com.jlsystems.vocevai.model;
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import com.jlsystems.vocevai.list.CategoriaFesta;
+import com.jlsystems.vocevai.list.Presente;
 
 @Entity
 public class Festa implements Serializable{
@@ -27,6 +31,9 @@ public class Festa implements Serializable{
 	@JoinColumn(name ="fk_categoria")
 	private CategoriaFesta fkCategoria;
 
+	@ManyToMany(fetch=FetchType.EAGER)
+	private List<Presente> presente;
+	
 	public Integer getId() {
 		return id;
 	}
