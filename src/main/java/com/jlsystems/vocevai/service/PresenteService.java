@@ -28,7 +28,7 @@ public class PresenteService {
 		return presenteRepository.findByDescricao(nome);
 	}
 	
-	public Presente insert(Presente presente) {
+	public Presente salvarPresente(Presente presente) {
 		Assert.isNull(presente.getId(), "Não foi possível inserir o registro");
 		return presenteRepository.save(presente);
 	}

@@ -14,37 +14,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.jlsystems.vocevai.list.Presente;
-import com.jlsystems.vocevai.service.PresenteService;
+import com.jlsystems.vocevai.list.Convidado;
+import com.jlsystems.vocevai.service.ConvidadoService;
 
 @RestController
-@RequestMapping("/presentes")
-public class PresenteController {
+@RequestMapping("/convidado")
+public class ConvidadoController {
 	
 	@Autowired
-	private PresenteService presenteService; 
+	private ConvidadoService convidadoService; 
 	
 	@GetMapping()
-	private ResponseEntity<List<Presente>> listaTodosPresentes(){
-		  List<Presente> presentes = presenteService.getPresente();
+	private ResponseEntity<List<Convidado>> listaTodosPresentes(){
+		  List<Convidado> presentes = convidadoService.getConvidado();
 	        return ResponseEntity.ok(presentes);
 	}
 	
 	@GetMapping("/{id}")
-	private ResponseEntity<Optional<Presente>> listaPorId(@PathVariable Integer id){
-		Optional<Presente> presente = presenteService.getPresentePorId(id);
+	private ResponseEntity<Optional<Convidado>> listaPorId(@PathVariable Integer id){
+		Optional<Convidado> presente = convidadoService.getConvidadoPorId(id);
 		return ResponseEntity.ok(presente);
 	}
 	
 	@GetMapping("/nome/{nome}")
-	private ResponseEntity<List<Presente>> listaPorNome(@PathVariable String nome){
-		List<Presente> presente = presenteService.getPresentePorNome(nome);
+	private ResponseEntity<List<Convidado>> listaPorNome(@PathVariable String nome){
+		List<Convidado> presente = convidadoService.getConvidadoPorNome(nome);
 		return ResponseEntity.ok(presente);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Presente> salvarPresente(@RequestBody Presente presente) {
-			Presente p = presenteService.salvarPresente(presente);
+	public ResponseEntity<Convidado> salvarPresente(@RequestBody Convidado convidado) {
+			Convidado p = convidadoService.salvarConvidado(convidado);
 			URI location = getUri(p.getId());
 			return ResponseEntity.created(location).build();
 	}
