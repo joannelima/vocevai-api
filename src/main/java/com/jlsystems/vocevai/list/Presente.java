@@ -5,6 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.jlsystems.vocevai.model.Festa;
 
 
 @Entity
@@ -22,8 +26,19 @@ public class Presente implements Serializable {
 	
 	private Double tamanho;
 	
+	@ManyToOne
+	@JoinColumn(name ="fk_festa")
+	private Festa festa;
 	
 	
+	public Festa getFesta() {
+		return festa;
+	}
+
+	public void setFesta(Festa festa) {
+		this.festa = festa;
+	}
+
 	public Integer getQuantidade() {
 		return quantidade;
 	}

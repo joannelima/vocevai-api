@@ -32,9 +32,9 @@ public class Festa implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name ="fk_categoria")
-	private CategoriaFesta fkCategoria;
+	private CategoriaFesta categoria;
 	
-	@OneToMany(mappedBy = "fkFesta", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "festa", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Convidado> convidados;
 
 	@ManyToMany(fetch=FetchType.EAGER)
@@ -77,13 +77,17 @@ public class Festa implements Serializable{
 		this.usuario = usuario;
 	}
 
-	public CategoriaFesta getFkCategoria() {
-		return fkCategoria;
+
+	public CategoriaFesta getCategoria() {
+		return categoria;
 	}
 
-	public void setFkCategoria(CategoriaFesta fkCategoria) {
-		this.fkCategoria = fkCategoria;
+
+	public void setCategoria(CategoriaFesta categoria) {
+		this.categoria = categoria;
 	}
+
+	
 
 	
 	

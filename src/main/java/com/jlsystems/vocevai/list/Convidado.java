@@ -28,19 +28,24 @@ public class Convidado implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name ="fk_festa")
-	private Festa fkFesta;
+	private Festa festa;
 	
 	public String getCodigoConvidado() {
 		return codigoConvidado;
 	}
 
-	public Festa getFkFesta() {
-		return fkFesta;
+
+	public Festa getFesta() {
+		return festa;
 	}
 
-	public void setFkFesta(Festa fkFesta) {
-		this.fkFesta = fkFesta;
+
+
+	public void setFesta(Festa festa) {
+		this.festa = festa;
 	}
+
+
 
 	public void setCodigoConvidado(String codigoConvidado) {
 		this.codigoConvidado = codigoConvidado;

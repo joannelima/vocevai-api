@@ -22,7 +22,7 @@ public class CategoriaFesta implements Serializable {
 	
 	private String descricao;
 	
-	@OneToMany(mappedBy = "fkCategoria", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "categoria", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Festa> festas;
 
 	public List<Festa> getFestas() {
